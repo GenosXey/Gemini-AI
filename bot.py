@@ -3,6 +3,9 @@
 from pyrogram import Client
 from config import Config
 import callback  # Assure que les handlers soient enregistrés
+import os
+
+PORT = int(os.environ.get("PORT", 8080))
 
 app = Client(
     name="gemini_bot",
@@ -12,6 +15,6 @@ app = Client(
 )
 
 if __name__ == "__main__":
-    print("🤖 Bot démarrage...")
+    print(f"🤖 Bot démarrage sur le port {PORT}...")
     app.run()
     print("✅ Bot arrêté.")
